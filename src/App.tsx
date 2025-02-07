@@ -15,7 +15,7 @@ function App() {
         {/* <GoogleSignIn/> */}
         <GameRules/>
         <Hardword/>
-        <Portfolio/>
+        <Portfolio userName={'Srijan Samridh'} profilePicUrl={''}/>
       </div>
     </div>
   );

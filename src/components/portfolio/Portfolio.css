@@ -4,8 +4,17 @@
     align-items: flex-start;
     padding: 20px;
     background-color: #fff;
-    width: calc(50vh - 40px);
+    width: calc(45vh - 50px);
     border-radius: 10px;
+}
+
+.portfolio-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .portfolio-section {
@@ -32,8 +41,8 @@
 .inline{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-avatar {
@@ -64,4 +73,12 @@
     color: #fff;
     background-color: #1b003c;
     border-radius: 50%;
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
