@@ -1,6 +1,6 @@
-import React from 'react';
-import './Hardword.css';
-import useHardword from './useHardword';
+import React from "react";
+import "./Hardword.css";
+import useHardword from "./useHardword";
 
 const Hardword: React.FC = () => {
   const {
@@ -10,7 +10,7 @@ const Hardword: React.FC = () => {
     isLoseModalOpen,
     targetWord,
     handleKeyPress,
-    initializeGame
+    initializeGame,
   } = useHardword();
 
   return (
@@ -20,19 +20,24 @@ const Hardword: React.FC = () => {
           <div key={rowIndex} className="row">
             <div className="cell-container">
               {row.map((letter, colIndex) => (
-                <div
-                  key={colIndex}
-                  className="cell"
-                >
+                <div key={colIndex} className="cell">
                   {letter}
                 </div>
               ))}
             </div>
             <div className="result-circles">
-                <div className={`circle ${resultCircles[rowIndex].green > 0 ? 'green' : 'grey'}`}>
+              <div
+                className={`circle ${
+                  resultCircles[rowIndex].green > 0 ? "green" : "grey"
+                }`}
+              >
                 {resultCircles[rowIndex].green}
-                </div>
-              <div className={`circle ${resultCircles[rowIndex].yellow > 0 ? 'yellow' : 'grey'}`}>
+              </div>
+              <div
+                className={`circle ${
+                  resultCircles[rowIndex].yellow > 0 ? "yellow" : "grey"
+                }`}
+              >
                 {resultCircles[rowIndex].yellow}
               </div>
             </div>
@@ -41,7 +46,7 @@ const Hardword: React.FC = () => {
       </div>
       <div className="keyboard">
         <div className="keyboard-row">
-          {['Q','W','E','R','T','Y','U','I','O','P'].map((key) => (
+          {["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"].map((key) => (
             <button
               key={key}
               onClick={() => handleKeyPress(key)}
@@ -52,7 +57,7 @@ const Hardword: React.FC = () => {
           ))}
         </div>
         <div className="keyboard-row middle">
-          {['A','S','D','F','G','H','J','K','L'].map((key) => (
+          {["A", "S", "D", "F", "G", "H", "J", "K", "L"].map((key) => (
             <button
               key={key}
               onClick={() => handleKeyPress(key)}
@@ -64,12 +69,12 @@ const Hardword: React.FC = () => {
         </div>
         <div className="keyboard-row">
           <button
-            onClick={() => handleKeyPress('Enter')}
+            onClick={() => handleKeyPress("Enter")}
             className="keyboard-key enter"
           >
             Enter
           </button>
-          {['Z','X','C','V','B','N','M'].map((key) => (
+          {["Z", "X", "C", "V", "B", "N", "M"].map((key) => (
             <button
               key={key}
               onClick={() => handleKeyPress(key)}
@@ -79,7 +84,7 @@ const Hardword: React.FC = () => {
             </button>
           ))}
           <button
-            onClick={() => handleKeyPress('Backspace')}
+            onClick={() => handleKeyPress("Backspace")}
             className="keyboard-key backspace"
           >
             ⌫
@@ -92,10 +97,7 @@ const Hardword: React.FC = () => {
             <h2 className="modal-title">Congratulations!</h2>
             <p>You've won the game!</p>
             <p>NFT transferred to your wallet</p>
-            <button
-              onClick={initializeGame}
-              className="modal-button"
-            >
+            <button onClick={initializeGame} className="modal-button">
               Play Again
             </button>
           </div>
@@ -106,10 +108,7 @@ const Hardword: React.FC = () => {
           <div className="modal-content">
             <h2 className="modal-title">Game Over!</h2>
             <p>The word was: {targetWord}</p>
-            <button
-              onClick={initializeGame}
-              className="modal-button"
-            >
+            <button onClick={initializeGame} className="modal-button">
               Play Again
             </button>
           </div>

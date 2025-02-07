@@ -117,3 +117,16 @@ span{
     margin-top: 3%;
     color: #f5f5f5;
 }
+
+.game-rules {
+    color: black;
+}
+
+.game-rules p,
+.game-rules ul,
+.game-rules li,
+.game-rules h3,
+.game-rules h4,
+.game-rules span {
+    color: black;
+}
