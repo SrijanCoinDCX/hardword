@@ -1,0 +1,139 @@
+/* WelcomeScreen.css */
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, black, gray 900);
+    color: white;
+}
+
+.logo-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.logo-circle {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.logo-circle.blue {
+    background-color: blue;
+    top: 0;
+    left: 1rem;
+}
+
+.logo-circle.purple {
+    background-color: purple;
+    top: 1rem;
+    right: 1rem;
+}
+
+.logo-circle.green {
+    background-color: green;
+    bottom: 0;
+    left: 2.5rem;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #60a5fa;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #d1d5db;
+    max-width: 36rem;
+}
+
+.play-button {
+    position: relative;
+    padding: 1.5rem 5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    outline: none;
+}
+
+.play-button.enabled {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+}
+
+.play-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.play-button.enabled:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.button-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(96, 165, 250, 0.1);
+    border-radius: 9999px;
+    transition: opacity 0.3s ease;
+}
+
+.button-overlay:hover {
+    opacity: 0.2;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1.5s ease-out;
+}

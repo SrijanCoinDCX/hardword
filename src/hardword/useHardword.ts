@@ -1,18 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const WORD_LIST = [
-  'BEST', 'REST', 'FELT', 'MEAT', 'LEFT', 'FAST',
-  'WORD', 'GAME', 'PLAY', 'STOP', 'LAKE', 'FIRE',
-  'WIND', 'BLUE', 'HOPE', 'LOVE', 'CARE', 'LIFE',
-  'MOON', 'STAR', 'SOUL', 'MIND', 'BOOK', 'TREE',
-  'RAIN', 'SNOW', 'CALM', 'WILD', 'BOLD', 'WARM',
-  'RISE', 'FALL', 'SING', 'WALK', 'TALK', 'SWIM'
+  "COIN", "HASH", "NODE", "MINE",
+  "DEFI", "SWAP", "POOL", "LOCK",
+  "GASX", "BURN", "HODL", "FORK",
+  "LEND", "LOAN", "RISK", "CODE",
+  "SIGN", "SAFE", "DROP",
+  "MOON", "ETHX", "BLOC",
+  "PAIR", "BIDX", "STAK", "SEND",
+  "RECV", "GOVX", "VOTE", "YLDX",
+  "ZKTX", "SNIP", "XMRX"
 ];
 
 const useHardword = () => {
-  const [targetWord, setTargetWord] = useState('');
-  const [board, setBoard] = useState<string[][]>(Array(6).fill(Array(4).fill('')));
-  const [resultCircles, setResultCircles] = useState<{green: number, yellow: number}[]>(Array(6).fill({green: 0, yellow: 0}));
+  const [targetWord, setTargetWord] = useState("");
+  const [board, setBoard] = useState<string[][]>(
+    Array(6).fill(Array(4).fill(""))
+  );
+  const [resultCircles, setResultCircles] = useState<
+    { green: number; yellow: number }[]
+  >(Array(6).fill({ green: 0, yellow: 0 }));
   const [currentRow, setCurrentRow] = useState(0);
   const [currentCol, setCurrentCol] = useState(0);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
@@ -20,8 +27,8 @@ const useHardword = () => {
 
   const initializeGame = () => {
     setTargetWord(WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)]);
-    setBoard(Array(6).fill(Array(4).fill('')));
-    setResultCircles(Array(6).fill({green: 0, yellow: 0}));
+    setBoard(Array(6).fill(Array(4).fill("")));
+    setResultCircles(Array(6).fill({ green: 0, yellow: 0 }));
     setCurrentRow(0);
     setCurrentCol(0);
     setIsWinModalOpen(false);
@@ -36,15 +43,17 @@ const useHardword = () => {
     if (guessedWord.length !== 4) return { green: 0, yellow: 0 };
     let green = 0;
     let yellow = 0;
-    const greenMatches = guessedWord.split('').filter((letter, index) => letter === targetWord[index]);
+    const greenMatches = guessedWord
+      .split("")
+      .filter((letter, index) => letter === targetWord[index]);
     green = greenMatches.length;
-    const remainingTargetLetters = targetWord.split('').filter((_, index) =>
-      guessedWord[index] !== targetWord[index]
-    );
-    const remainingGuessLetters = guessedWord.split('').filter((_, index) =>
-      guessedWord[index] !== targetWord[index]
-    );
-    yellow = remainingGuessLetters.filter(letter =>
+    const remainingTargetLetters = targetWord
+      .split("")
+      .filter((_, index) => guessedWord[index] !== targetWord[index]);
+    const remainingGuessLetters = guessedWord
+      .split("")
+      .filter((_, index) => guessedWord[index] !== targetWord[index]);
+    yellow = remainingGuessLetters.filter((letter) =>
       remainingTargetLetters.includes(letter)
     ).length;
     const isWin = guessedWord === targetWord;
@@ -56,21 +65,21 @@ const useHardword = () => {
   };
 
   const transferNFT = () => {
-    console.log('Transferring NFT to wallet');
+    console.log("Transferring NFT to wallet");
   };
 
   const handleKeyPress = (key: string) => {
-    if (key === 'Backspace') {
+    if (key === "Backspace") {
       if (currentCol > 0) {
         const newBoard = [...board];
         newBoard[currentRow] = newBoard[currentRow].map((letter, index) =>
-          index === currentCol - 1 ? '' : letter
+          index === currentCol - 1 ? "" : letter
         );
         setBoard(newBoard);
         setCurrentCol(currentCol - 1);
       }
-    } else if (key === 'Enter' && currentCol === 4) {
-      const guessedWord = board[currentRow].join('');
+    } else if (key === "Enter" && currentCol === 4) {
+      const guessedWord = board[currentRow].join("");
       const matchResult = checkWordMatch(guessedWord);
       const newResultCircles = [...resultCircles];
       newResultCircles[currentRow] = matchResult;
@@ -97,7 +106,7 @@ const useHardword = () => {
     isLoseModalOpen,
     targetWord,
     handleKeyPress,
-    initializeGame
+    initializeGame,
   };
 };
 
