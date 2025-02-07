@@ -12,7 +12,7 @@ const WORD_LIST = [
 const useHardword = () => {
   const [targetWord, setTargetWord] = useState('');
   const [board, setBoard] = useState<string[][]>(Array(6).fill(Array(4).fill('')));
-  const [resultCircles, setResultCircles] = useState<{green: number, grey: number}[]>(Array(6).fill({green: 0, grey: 0}));
+  const [resultCircles, setResultCircles] = useState<{green: number, yellow: number}[]>(Array(6).fill({green: 0, yellow: 0}));
   const [currentRow, setCurrentRow] = useState(0);
   const [currentCol, setCurrentCol] = useState(0);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false);
@@ -21,7 +21,7 @@ const useHardword = () => {
   const initializeGame = () => {
     setTargetWord(WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)]);
     setBoard(Array(6).fill(Array(4).fill('')));
-    setResultCircles(Array(6).fill({green: 0, grey: 0}));
+    setResultCircles(Array(6).fill({green: 0, yellow: 0}));
     setCurrentRow(0);
     setCurrentCol(0);
     setIsWinModalOpen(false);
@@ -33,9 +33,9 @@ const useHardword = () => {
   }, []);
 
   const checkWordMatch = (guessedWord: string) => {
-    if (guessedWord.length !== 4) return { green: 0, grey: 0 };
+    if (guessedWord.length !== 4) return { green: 0, yellow: 0 };
     let green = 0;
-    let grey = 0;
+    let yellow = 0;
     const greenMatches = guessedWord.split('').filter((letter, index) => letter === targetWord[index]);
     green = greenMatches.length;
     const remainingTargetLetters = targetWord.split('').filter((_, index) =>
@@ -44,7 +44,7 @@ const useHardword = () => {
     const remainingGuessLetters = guessedWord.split('').filter((_, index) =>
       guessedWord[index] !== targetWord[index]
     );
-    grey = remainingGuessLetters.filter(letter =>
+    yellow = remainingGuessLetters.filter(letter =>
       remainingTargetLetters.includes(letter)
     ).length;
     const isWin = guessedWord === targetWord;
@@ -52,7 +52,7 @@ const useHardword = () => {
       setIsWinModalOpen(true);
       transferNFT();
     }
-    return { green, grey };
+    return { green, yellow };
   };
 
   const transferNFT = () => {

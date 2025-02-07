@@ -1,0 +1,119 @@
+.game-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: calc(50vh - 40px);
+    height: 30vh;
+}
+ul{
+    text-align: left;
+    font-size: small;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+li {
+    text-align: left;
+    font-size: small;
+}
+p{
+    text-align: left;
+    font-size: small;
+}
+h3{
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+h4{
+    font-size: 0.8rem;
+    /* margin-bottom: 0; */
+}
+
+span{
+    font-size: 0.7rem;
+    margin-bottom: 0;
+}
+
+.game-rules h2 {
+    font-size: 1rem;
+}
+
+.result-pattern{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3%;
+}
+
+.green-circle {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    background-color: #48bb78;
+    margin-right: 1rem;
+}
+
+.yellow-circle {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    background-color: #dec11b;
+    margin-right: 1rem;
+}
+
+.grey-circle{
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    background-color: #4a5568;
+    margin-right: 1rem;
+}
+
+.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.rewards{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #1b0256;
+    background-image: url('https://img.freepik.com/free-vector/gradient-isometric-nft-concept_52683-62009.jpg?ga=GA1.1.1231549447.1738960470&semt=ais_hybrid');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: calc(50vh - 40px);
+    margin-top: 3%;
+    color: #f5f5f5;
+}

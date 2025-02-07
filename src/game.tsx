@@ -15,7 +15,6 @@ const Hardword: React.FC = () => {
 
   return (
     <div className="container">
-      <div className="title">Hardword</div>
       <div className="board">
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className="row">
@@ -30,11 +29,11 @@ const Hardword: React.FC = () => {
               ))}
             </div>
             <div className="result-circles">
-              <div className="circle green">
+                <div className={`circle ${resultCircles[rowIndex].green > 0 ? 'green' : 'grey'}`}>
                 {resultCircles[rowIndex].green}
-              </div>
-              <div className="circle grey">
-                {resultCircles[rowIndex].grey}
+                </div>
+              <div className={`circle ${resultCircles[rowIndex].yellow > 0 ? 'yellow' : 'grey'}`}>
+                {resultCircles[rowIndex].yellow}
               </div>
             </div>
           </div>

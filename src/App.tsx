@@ -1,16 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import GoogleSignIn from './SignIn';
+// import GoogleSignIn from './SignIn';
 import Hardword from './game';
+import GameRules from './components/info/Info';
+import Portfolio from './components/portfolio/Portfolio';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <GoogleSignIn/> */}
-        <Hardword/>
+        <h1>Hardword</h1>
       </header>
+      <div className="main">
+        {/* <GoogleSignIn/> */}
+        <GameRules/>
+        <Hardword/>
+        <Portfolio/>
+      </div>
     </div>
   );
 }
